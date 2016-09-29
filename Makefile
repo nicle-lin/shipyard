@@ -1,7 +1,7 @@
 CGO_ENABLED=0
 GOOS=linux
 GOARCH=amd64
-TAG=${TAG:-latest}
+TAG=${TAG:-0.2}
 COMMIT=`git rev-parse --short HEAD`
 
 #测试
