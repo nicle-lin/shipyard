@@ -20,10 +20,10 @@ if [ -z "`which docker`" ]; then
     exit 1
 fi
 
-#ACTION=${ACTION:-deploy}
+ACTION=${ACTION:-deploy}
 #ACTION=${ACTION:-remove}
-ACTION=${ACTION:-upgrade}
-IMAGE=${IMAGE:-dockerclub/shipyard:test}
+#ACTION=${ACTION:-upgrade}
+IMAGE=${IMAGE:-dockerclub/shipyard:latest}
 PREFIX=${PREFIX:-shipyard}
 SHIPYARD_ARGS=${SHIPYARD_ARGS:-""}
 TLS_CERT_PATH=${TLS_CERT_PATH:-}
@@ -336,7 +336,7 @@ elif [ "$ACTION" = "upgrade" ]; then
 
     echo "Upgrading Shipyard"
     echo " -> Pulling $IMAGE"
-   # docker pull $IMAGE
+    docker pull $IMAGE
 
     echo " -> Upgrading Controller"
     remove_controller
